@@ -5,3 +5,4 @@ matplotlib
 SQLAlchemy~=2.0.45
 psycopg2-binary
 flask
+flask_sqlalchemy

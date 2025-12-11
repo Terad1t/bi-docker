@@ -12,15 +12,18 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
 
-  api:
+  bi:
     build: .
-    container_name: bi_api
+    container_name: bi_app
     depends_on:
       - db
     ports:
       - "5000:5000"
     volumes:
       - ./data:/app/data
-    command: python src/api.py
+    command: python src/main.py
+
+volumes:
+  postgres_data:
