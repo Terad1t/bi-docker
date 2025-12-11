@@ -3,7 +3,6 @@
 docker build -t bi-project .
 <br>
 docker run -it --rm -v "${PWD}/data:/app/data" bi-project
-
 docker compose up --build
 curl http://localhost:5000/
 
@@ -19,4 +18,5 @@ curl http://localhost:5000/vendas
   {"produto":"Mouse","quantidade":10,"preco":60},
   ...
 ]
+
 
