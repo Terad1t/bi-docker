@@ -1,22 +1,25 @@
 import pandas as pd
+from sqlalchemy import create_engine
 
 def analisar_vendas():
     df = pd.read_csv("data/vendas.csv")
 
-    print("Dataset carregado: ")
+    print("\nDataset carregado:")
     print(df)
-    print("\n")
 
-    # Faturamento total do produto
-    df["faturamento"] = df["quantidade"] * df["preco"]
+    # Conexão ao PostgreSQL
+    engine = create_engine("postgresql://admin:admin@db:5432/bi_db")
 
-    print("faturamento por produto: ")
-    print(df [["produto", "faturamento"]])
-    print("\n")
+    # Enviar dados para o banco
+    df.to_sql("vendas", engine, if_exists="replace", index=False)
 
-    # Total geral
-    total = df ["faturamento"].sum()
-    print(f"Faturamento total: R$ {total:.2f}")
+    print("\nDados inseridos no PostgreSQL!\n")
+
+    # Ler de volta do banco
+    consulta = pd.read_sql("SELECT * FROM vendas", engine)
+    print("Dados no Banco:")
+    print(consulta)
+
 
 if __name__ == "__main__":
     analisar_vendas()

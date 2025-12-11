@@ -1,4 +1,7 @@
-pandas
+pandas~=2.3.3
 numpy
 scipy
 matplotlib
+SQLAlchemy~=2.0.45
+psycopg2-binary
+flask

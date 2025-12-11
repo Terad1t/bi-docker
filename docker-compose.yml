@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:14
+    container_name: bi_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: bi_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: bi_api
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+    command: python src/api.py
