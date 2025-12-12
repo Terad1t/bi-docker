@@ -1,25 +1,46 @@
-﻿# Projeto BI Docker
+# BI Docker Project
 
-docker build -t bi-project .
-<br>
-docker run -it --rm -v "${PWD}/data:/app/data" bi-project
-<br>
+Este projeto é um pipeline completo utilizando **Docker**, **Python**, **Flask**, **Pandas** e **PostgreSQL**, com o objetivo de demonstrar habilidades de backend, containers e análise de dados.
+
+Ele faz:
+
+- Leitura de um dataset (CSV)
+- Inserção dos dados no PostgreSQL
+- Consulta dos dados por API REST (CRUD completo)
+- Estrutura modular em Python
+- Ambiente isolado com Docker Compose
+
+---
+
+## Tecnologias Utilizadas
+
+- **Python 3.11**
+- **Flask**
+- **Pandas**
+- **psycopg2**
+- **PostgreSQL 14**
+- **Docker & Docker Compose**
+
+---
+
+
+---
+
+## 🐳 Como Rodar o Projeto com Docker
+
+docker build -t hello-world
 docker compose up --build
 <br>
-curl http://localhost:5000/
+A API ESTÁ RODANDO EM:
+http://localhost:5000
 
-# O que deve ser retornado no local host:
-{"status": "API BI funcionando!"}
+---
 
-# Para os dados das vendas:
+## Próximos passos do projeto:
 
-curl http://localhost:5000/vendas
-<br>
-[
-  {"produto":"Teclado","quantidade":4,"preco":120},
-  {"produto":"Mouse","quantidade":10,"preco":60},
-  ...
-]
-
-
-
+- **Pipeline Docker funcionando** [FEITO]
+- **Implementar API CRUD88** []
+- **Criar dashboards BI com Python** []
+- **Deploy da API em VPS / Render / Railway**[]
+- **Adicionar testes automatizados** []
+- **Criar versão 2.0 com autenticação JWT** []
