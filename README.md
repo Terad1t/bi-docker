@@ -28,7 +28,8 @@ Ele faz:
 
 ## 🐳 Como Rodar o Projeto com Docker
 
-docker build -t hello-world
+docker build -t bi-docker
+<br>
 docker compose up --build
 <br>
 A API ESTÁ RODANDO EM:
@@ -44,3 +45,4 @@ http://localhost:5000
 - **Deploy da API em VPS / Render / Railway**[]
 - **Adicionar testes automatizados** []
 - **Criar versão 2.0 com autenticação JWT** []
+
